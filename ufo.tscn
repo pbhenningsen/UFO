@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dew5cfp6lluxc"]
+
+[ext_resource type="ArrayMesh" uid="uid://cshb5hy6gmca2" path="res://models/ufo.obj" id="1_it8vv"]
+
+[node name="Ufo" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_it8vv")

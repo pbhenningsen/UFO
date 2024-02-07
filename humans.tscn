@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://eav8av24w5g6"]
+
+[ext_resource type="Script" path="res://capsules.gd" id="1_2g0aa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjiph"]
+albedo_color = Color(1, 0.235294, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s3d3l"]
+material = SubResource("StandardMaterial3D_jjiph")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q1wx4"]
+
+[node name="capsules" type="CharacterBody3D"]
+script = ExtResource("1_2g0aa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_s3d3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_q1wx4")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 0, 0, 0)
+light_color = Color(1, 1, 0.337255, 1)
+light_energy = 16.0
+light_indirect_energy = 4.83
+light_volumetric_fog_energy = 10.622
+spot_range = 31.646
+spot_angle = 38.51
+
+[node name="change_direction" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="change_direction" to="." method="_on_change_direction_timeout"]
